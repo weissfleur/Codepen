@@ -15,6 +15,7 @@ $(function () {
   const playPreviousTrackButton = $("#play-previous");
   const playNextTrackButton = $("#play-next");
   const albums = [
+    "✧ Touring in Love ✧",
     "✧ Celestial Serenade ✧",
     "✧ Beyond Time ✧",
     "✧ The First Light ✧",
@@ -45,10 +46,12 @@ $(function () {
     "Love and Deepspace",
     "Love and Deepspace",
     "Love and Deepspace",
+    "Love and Deepspace",
     "Love and Deepspace"
   ];
-  const albumArtworks = ["_1", "_2", "_3", "_4", "_5", "_6", "_7", "_8", "_9", "_10", "_11", "_12", "_13", "_14", "_15"];
+  const albumArtworks = ["_1", "_2", "_3", "_4", "_5", "_6", "_7", "_8", "_9", "_10", "_11", "_12", "_13", "_14", "_15", "_16"];
   const trackUrl = [
+    "https://weissfleur.github.io/Codepen/touringinlove.mp3",
     "https://weissfleur.github.io/Codepen/celestialserenade.mp3",
     "https://weissfleur.github.io/Codepen/beyondtime.mp3",
     "https://weissfleur.github.io/Codepen/thefirstlight.mp3",
