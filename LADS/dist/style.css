@@ -1,0 +1,333 @@
+* {
+    font-family: "Georgia", serif;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  background-color: #f1f9f9;
+}
+*:focus {
+  outline: none;
+}
+
+body {
+  margin: 0;
+  background-color: #ffeff5;
+}
+
+#player-container {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  width: 323px;
+  height: 75px;
+  margin: -3px auto;
+}
+
+#player-bg-artwork {
+  position: fixed;
+  top: -23px;
+  right: -23px;
+  bottom: -23px;
+  left: -23px;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  filter: blur(30px);
+  -webkit-filter: blur(30px);
+  z-index: 1;
+}
+
+#player-bg-layer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  opacity: 0.5;
+  z-index: 2;
+}
+
+#player {
+  position: relative;
+  height: 100%;
+  z-index: 3;
+}
+
+#player-track {
+  position: absolute;
+  top: 0;
+  right: 11px;
+  left: 11px;
+  padding: 10px 17px 8px 138px;
+  background-image:url("https://img.freepik.com/free-photo/anime-style-clouds_23-2151071777.jpg");
+  border-radius: 11px 11px 0 0;
+  transition: 0.3s ease top;
+  z-index: 1;
+}
+
+#player-track.active {
+  top: -69px;
+}
+
+#album-name {
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+#track-name {
+  color: #c6e3f9;
+  font-size: 8px;
+  margin: 1px 0 10px 0;
+}
+
+#track-time {
+  height: 9px;
+  margin-bottom: 2px;
+  overflow: hidden;
+}
+
+#current-time {
+  float: left;
+}
+
+#track-length {
+  float: right;
+}
+
+#current-time,
+#track-length {
+  color: transparent;
+  font-size: 8px;
+  background-color: #124d87;
+  border-radius: 8px;
+  transition: 0.3s ease all;
+}
+
+#track-time.active #current-time,
+#track-time.active #track-length {
+  color: #fff;
+  background-color: transparent;
+}
+
+#seek-bar-container,
+#seek-bar {
+  position: relative;
+  height: 3px;
+  border-radius: 3px;
+}
+
+#seek-bar-container {
+  background-color: #5190c1;
+  cursor: pointer;
+}
+
+#seek-time {
+  position: absolute;
+  top: -22px;
+  color: #fff;
+  font-size: 9px;
+  white-space: pre;
+  padding: 4px 5px;
+  border-radius: 3px;
+  display: none;
+}
+
+#s-hover {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.2;
+  z-index: 2;
+}
+
+#seek-time,
+#s-hover {
+  background-color: #cad2ee;
+}
+
+#seek-bar {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  background-color: #0b5b99;
+  transition: 0.2s ease width;
+  z-index: 1;
+}
+
+#player-content {
+  position: relative;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 6px #c2c2c2;
+  border-radius: 11px;
+  z-index: 2;
+}
+
+#album-art {
+  position: absolute;
+  top: -30px;
+  width: 86px;
+  height: 86px;
+  margin-left: 30px;
+  transform: rotateZ(0);
+  transition: 0.3s ease all;
+  box-shadow: 0 0 0 8px #fff;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+#album-art.active {
+  top: -60px;
+  box-shadow: 0 0 0 4px #ffffff, 0 23px 38px -11px #c2c2c2;
+}
+
+#album-art:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  margin: -8px auto 0 auto;
+  background-color: #d6dee7;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px #fff;
+  z-index: 2;
+}
+
+#album-art img {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: -1;
+}
+
+#album-art img.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+#album-art.active img.active {
+  z-index: 1;
+  -webkit-animation: rotateAlbumArt 3s linear 0s infinite forwards;
+          animation: rotateAlbumArt 3s linear 0s infinite forwards;
+}
+
+@-webkit-keyframes rotateAlbumArt {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes rotateAlbumArt {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+#buffer-box {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  height: 10px;
+  color: #1f1f1f;
+  font-size: 10px;
+  font-family: Helvetica;
+  text-align: center;
+  font-weight: bold;
+  line-height: 1;
+  padding: 5px;
+  margin: -9px auto 0 auto;
+  background-color: rgba(255, 255, 255, 0.19);
+  opacity: 0;
+  z-index: 2;
+}
+
+#album-art img,
+#buffer-box {
+  transition: 0.1s linear all;
+}
+
+#album-art.buffering img {
+  opacity: 0.25;
+}
+
+#album-art.buffering img.active {
+  opacity: 0.8;
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
+}
+
+#album-art.buffering #buffer-box {
+  opacity: 1;
+}
+
+#player-controls {
+  width: 188px;
+  height: 100%;
+  margin: 0 4px 0 106px;
+  float: right;
+  overflow: hidden;
+}
+
+.control {
+  width: 33.333%;
+  float: left;
+  padding: 12px 0;
+}
+
+.button {
+  width: 20px;
+  height: 20px;
+  padding: 19px;
+  background-color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button i {
+  display: block;
+  color: #c6e3f9;
+  font-size: 20px;
+  text-align: center;
+  line-height: 1;
+}
+
+.button,
+.button i {
+  transition: 0.2s ease all;
+}
+
+.button:hover {
+  background-color: #c6e3f9;
+}
+
+.button:hover i {
+  color: #fff;
+}
